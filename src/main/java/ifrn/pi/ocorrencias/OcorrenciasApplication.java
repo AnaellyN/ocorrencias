@@ -1,4 +1,4 @@
-package ifrn.pi.ocorrencias.controllers;
+package ifrn.pi.ocorrencias;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
