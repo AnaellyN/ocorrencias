@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+ #h1{
+ 	--font-size:2px;
+ }
+ #right hide-on-med-and-down{
+  --background-color: red
+ }
+ 
