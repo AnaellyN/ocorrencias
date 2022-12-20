@@ -2,6 +2,9 @@ package ifrn.pi.ocorrencias.servicos.implementacao;
 
 import java.util.Arrays;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -16,14 +19,19 @@ import ifrn.pi.ocorrencias.servicos.ContaServicos;
 public class ContaServicosImplementacao implements ContaServicos {
 	private ContaRepositorio contaRepositorio;
 	private FuncaoRepositorio funcaoRepositorio;
-	private PasswordEncoder encoder;
 	
+	//@Autowired
+	//private PasswordEncoder passwordEncoder;
 	
-	public ContaServicosImplementacao(ContaRepositorio contaRepositorio, FuncaoRepositorio funcaoRepositorio,
-			PasswordEncoder encoder) {
+	@Autowired
+	public PasswordEncoder passwordEncoder() {
+		return new BCryptPasswordEncoder();
+	}
+
+	public ContaServicosImplementacao(ContaRepositorio contaRepositorio, FuncaoRepositorio funcaoRepositorio) {
 		this.contaRepositorio = contaRepositorio;
 		this.funcaoRepositorio = funcaoRepositorio;
-		this.encoder = encoder;
+		//this.passwordEncoder = encoder;
 	}
 
 	@Override
@@ -31,9 +39,9 @@ public class ContaServicosImplementacao implements ContaServicos {
 		Conta conta = new Conta();
 		conta.setEmail(contadto.getEmail());
 		conta.setMatricula(contadto.getMatricula());
-		conta.setSenha(this.encoder.encode(contadto.getSenha()));
-		Funcao funcao = this.funcaoRepositorio.buscarPorNome("ROLE_ADMIN");
-		if(funcao == null) {
+		conta.setSenha(this.passwordEncoder().encode(contadto.getSenha()));
+		Funcao funcao = this.funcaoRepositorio.findByNome("ROLE_ADMIN");
+		if (funcao == null) {
 			funcao = checarFuncao();
 		}
 		conta.setFuncoes(Arrays.asList(funcao));
@@ -42,13 +50,14 @@ public class ContaServicosImplementacao implements ContaServicos {
 
 	@Override
 	public Conta buscarPorMatricula(String matricula) {
-		return this.contaRepositorio.buscarPorMatricula(matricula);
+		return this.contaRepositorio.findByMatricula(matricula);
 	}
+
 	private Funcao checarFuncao() {
 		Funcao funcao = new Funcao();
 		funcao.setName("ROLE_ADMIN");
 		return this.funcaoRepositorio.save(funcao);
-		
+
 	}
 
 }

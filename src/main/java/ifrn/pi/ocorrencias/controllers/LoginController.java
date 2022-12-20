@@ -14,35 +14,34 @@ import ifrn.pi.ocorrencias.servicos.ContaServicos;
 
 @Controller
 public class LoginController {
-	
+
 	@Autowired
-	private ContaServicos contaServicos; 
-	
+	private ContaServicos contaServicos;
+
 	public LoginController(ContaServicos contaServicos) {
 		this.contaServicos = contaServicos;
 	}
-	
+
 	@GetMapping("/registro")
 	public String registro(Model model) {
 		ContaDto contadto = new ContaDto();
 		model.addAttribute("conta", contadto);
 		return "registro";
 	}
-	
+
 	@PostMapping("/registro/save")
-	public String cadastrar(@ModelAttribute("conta")ContaDto contadto, 
-			BindingResult bindingResult, Model model) {
+	public String cadastrar(@ModelAttribute("conta") ContaDto contadto, BindingResult bindingResult, Model model) {
 		Conta contaExistente = this.contaServicos.buscarPorMatricula(contadto.getMatricula());
-		if(contaExistente != null && contaExistente.getMatricula()!= null &&
-				!contaExistente.getMatricula().isEmpty()) {
+		if (contaExistente != null && contaExistente.getMatricula() != null
+				&& !contaExistente.getMatricula().isEmpty()) {
 			bindingResult.rejectValue("matricula", "Matricula Inválida");
 		}
-		if(bindingResult.hasErrors()) {
+		if (bindingResult.hasErrors()) {
 			model.addAttribute("conta", contadto);
 			return "/registro";
 		}
 		this.contaServicos.cadastrarConta(contadto);
 		return "redirect:/registro?success";
-		
+
 	}
 }
