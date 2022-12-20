@@ -7,5 +7,5 @@ import ifrn.pi.ocorrencias.entidades.Funcao;
 
 @Repository
 public interface FuncaoRepositorio extends JpaRepository<Funcao, Long>{
-	Funcao buscarPorNome(String nome);
+	Funcao findByNome(String nome);
 }

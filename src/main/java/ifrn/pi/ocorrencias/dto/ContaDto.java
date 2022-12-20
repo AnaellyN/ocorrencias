@@ -1,7 +1,7 @@
 package ifrn.pi.ocorrencias.dto;
 
 public class ContaDto {
-	
+
 	private String email;
 
 	private String matricula;
@@ -9,7 +9,7 @@ public class ContaDto {
 	private String senha;
 
 	public ContaDto() {
-		
+
 	}
 
 	public ContaDto(String email, String matricula, String senha) {
@@ -41,6 +41,5 @@ public class ContaDto {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	
+
 }

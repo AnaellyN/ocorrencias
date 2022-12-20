@@ -8,5 +8,5 @@ import ifrn.pi.ocorrencias.entidades.Conta;
 @Repository
 public interface ContaRepositorio extends JpaRepository<Conta, Long> {
 	
-	Conta buscarPorMatricula(String matricula);
+	Conta findByMatricula(String matricula);
 }
