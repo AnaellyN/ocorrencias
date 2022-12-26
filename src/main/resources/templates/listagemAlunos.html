@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- Compiled and minified CSS -->
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<title>Alunos</title>
+</head>
+<body>
+	<div th:replace="~{menu :: menu}"></div>
+
+	<div class="container">
+
+		<h1>Alunos Cadastrados</h1>
+		
+		<p th:if="${mensagem}" th:text="${mensagem}"></p>
+
+		<table class="highlight">
+
+			<thead>
+				<tr>
+					<th>Matrícula</th>
+					<th>Nome</th>
+					<th>Curso</th>
+					<th>Endereço</th>
+					<th>Telefone</th>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="e : ${eventos}">
+					<td th:text="${e.id}">1</td>
+					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span
+							th:text="${e.nome}">Halloween</span></a></td>
+					<td th:text="${e.local}">Sítio</td>
+					<td th:text="${#temporals.format(e.data, 'dd/MM/yyyy')}">30/10/2022</td>
+					<td th:text="${e.horario}">21h</td>
+					<td>
+						<a th:href ="@{/eventos/{id}/selecionar(id=${e.id})}"><i class="material-icons">edit</i></a>
+						<a th:href="@{/eventos/{id}/remover(id=${e.id})}"><i class="material-icons">delete</i></a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>
