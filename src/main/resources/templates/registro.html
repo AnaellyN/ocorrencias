@@ -68,7 +68,7 @@
 							<label class="form-label">Senha</label> <input
 								class="form-control" id="senha" name="senha"
 								placeholder="Insira sua senha" th:field="*{senha}"
-								type="senha" />
+								type="password" />
 							<p th:errors="*{senha}" class="text-danger"
 								th:if="${#fields.hasErrors('senha')}"></p>
 						</div>
