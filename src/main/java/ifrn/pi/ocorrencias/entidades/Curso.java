@@ -11,7 +11,7 @@ import javax.persistence.Table;
 @Table(name = "cursos")
 public class Curso {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -20,7 +20,7 @@ public class Curso {
 	private String nome;
 
 	public Curso() {
-		
+
 	}
 
 	public Curso(long id, String nome) {
@@ -43,5 +43,5 @@ public class Curso {
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
+
 }

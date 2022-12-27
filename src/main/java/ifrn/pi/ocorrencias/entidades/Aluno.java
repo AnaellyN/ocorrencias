@@ -26,7 +26,7 @@ public class Aluno {
 
 	@Column(name = "nome", nullable = false)
 	private String nome;
-
+	
 	@Column(name = "dataDeNascimento", nullable = false)
 	private Date dataDeNascimento;
 
@@ -37,17 +37,24 @@ public class Aluno {
 	@JoinColumn(name = "id_curso", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
 	private Curso curso;
-	
+
 	public Aluno() {
 
 	}
-
+	
 	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso) {
 
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
-		this.telefone = telefone;
-		this.curso = curso;
+		
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 
 	public String getNome() {
@@ -73,14 +80,7 @@ public class Aluno {
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	public long getId() {
-		return id;
-	}
 
-	public void setId(long id) {
-		this.id = id;
-	}
-	
 	public Curso getCurso() {
 		return curso;
 	}
@@ -89,3 +89,4 @@ public class Aluno {
 		this.curso = curso;
 	}
 }
+	
