@@ -1,4 +1,4 @@
-package ifrn.pi.ocorrencias.entidades;
+    package ifrn.pi.ocorrencias.entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
