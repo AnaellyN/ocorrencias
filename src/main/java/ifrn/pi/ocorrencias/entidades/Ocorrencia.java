@@ -1,14 +1,6 @@
 package ifrn.pi.ocorrencias.entidades;
-import java.util.ArrayList;
-import java.util.List;
-
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
@@ -31,23 +23,23 @@ public class Ocorrencia {
 		@Column(name = "principal_motivo", nullable = false, unique = false)
 		private String principal_motivo;
 
-		@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
-		@JoinTable(name = "funcoes_contas", joinColumns = { @JoinColumn(name = "contas_id", referencedColumnName = "id") }, 
-				inverseJoinColumns = { @JoinColumn(name = "funcoes_id", referencedColumnName = "id") })
+  	 
 
-		private List<Aluno> alunos = new ArrayList<>();
+		//Criar uma referencia para aluno. 
 
 		public Ocorrencia() {
 
 		}
 
-		public Ocorrencia(String data, String horario, String principal_sintoma, String principal_motivo, List<Aluno> alunos) {
+	public Ocorrencia(String data, String horario, String principal_sintoma, String principal_motivo 
+			
+			) {
 
 			this.data = data;
 			this.horario = horario;
 			this.principal_sintoma = principal_sintoma;
 			this.principal_motivo = principal_motivo;
-			this.alunos = alunos;
+		//	this.alunos = alunos;
 		}
 
 		public String getData() {
@@ -83,16 +75,6 @@ public class Ocorrencia {
 			this.principal_motivo = principal_motivo;
 		}
 
-		public List<Aluno> getAlunos() {
-			return alunos;
-		}
-
-		public void setAlunos(List<Aluno> alunos) {
-			this.alunos = alunos;
-		}
-
-		public static long getSerialversionuid() {
-			return serialVersionUID;
-		}
+	
 
 }
