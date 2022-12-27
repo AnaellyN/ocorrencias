@@ -9,18 +9,18 @@ public class AlunoDto {
 		private Long id;
 		private String name;
 		private String email;
-		private String cpf;
+		private String matricula;
 		private String password;
 
 		public AlunoDto() {
 
 		}
 
-		public AlunoDto(Long id, String name, String email, String cpf, String password) {
+		public AlunoDto(Long id, String name, String email, String matricula, String password) {
 			this.id = id;
 			this.name = name;
 			this.email = email;
-			this.cpf = cpf;
+			this.matricula = matricula;
 			this.password = password;
 		}
 
@@ -42,11 +42,11 @@ public class AlunoDto {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-		public String getCpf() {
-			return cpf;
+		public String getMatricula() {
+			return matricula;
 		}
-		public void setCpf(String cpf) {
-			this.cpf = cpf;
+		public void setCpf(String matricula) {
+			this.matricula = matricula;
 		}
 		public String getPassword() {
 			return password;
