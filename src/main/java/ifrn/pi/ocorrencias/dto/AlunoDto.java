@@ -45,7 +45,7 @@ public class AlunoDto {
 		public String getMatricula() {
 			return matricula;
 		}
-		public void setCpf(String matricula) {
+		public void setMatricula(String matricula) {
 			this.matricula = matricula;
 		}
 		public String getPassword() {
