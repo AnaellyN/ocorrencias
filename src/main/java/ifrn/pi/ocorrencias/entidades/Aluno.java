@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "alunos cadastrados")
+@Table(name = "alunos")
 public class Aluno {
 	private static final long serialVersionUID = 1L;
 
