@@ -27,7 +27,13 @@ public class Seguranca {
 		httpSecurity.csrf().disable()
 			.authorizeRequests()
 			.antMatchers("/", "/registro/**").permitAll()
-			.antMatchers("/socorro").hasRole("ADMIN");
+			.antMatchers("/socorro").hasRole("ADMIN")
+			.and()
+			.formLogin(form -> form
+					.loginPage("/login")
+					.loginProcessingUrl("/login")
+					.defaultSuccessUrl("/")
+					.permitAll());
 		return httpSecurity.build();
 	}
 	
