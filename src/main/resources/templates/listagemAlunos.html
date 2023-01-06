@@ -15,7 +15,7 @@
 		<div class="nav-wrapper container">
 			<ul id="nav-mobile" class="right hide-on-med-and-down">
 				<li><a href="/"><i class="material-icons">home</i></a></li>
-				<li><a href="/registro">Cadastrar Usuário</a></li>
+				<li><a href="/registro">Cadastrar Aluno</a></li>
 			</ul>
 		</div>
 	</nav>
@@ -41,18 +41,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr th:each="e : ${eventos}">
-					<td th:text="${e.id}"></td>
-					<td><a th:href="@{/eventos/{id}(id=${e.id})}"><span
-							th:text="${e.nome}"></span></a></td>
-					<td th:text="${e.local}"></td>
-					<td th:text="${#temporals.format(e.data, 'dd/MM/yyyy')}"></td>
-					<td th:text="${e.horario}"></td>
-					<td><a th:href="@{/eventos/{id}/selecionar(id=${e.id})}"><i
-							class="material-icons">edit</i></a> <a
-						th:href="@{/eventos/{id}/remover(id=${e.id})}"><i
-							class="material-icons">delete</i></a></td>
-				</tr>
+				
 			</tbody>
 		</table>
 	</div>

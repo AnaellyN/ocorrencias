@@ -7,5 +7,5 @@ import ifrn.pi.ocorrencias.entidades.Aluno;
 
 @Repository 
 public interface AlunoRepositorio extends JpaRepository<Aluno, Long>{
-
+	Aluno findByMatricula(String matricula); 
 }
