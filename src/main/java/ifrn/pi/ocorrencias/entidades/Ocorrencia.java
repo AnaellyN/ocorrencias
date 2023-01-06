@@ -1,6 +1,8 @@
     package ifrn.pi.ocorrencias.entidades;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -25,22 +27,30 @@ public class Ocorrencia {
 
   	 
 
-		//Criar uma referencia para aluno. 
+		@ManyToOne
+	    @JoinColumn(name="aluno_id", nullable=false)
+	    private Aluno aluno;
 
 		public Ocorrencia() {
 
 		}
 
-	public Ocorrencia(String data, String horario, String principal_sintoma, String principal_motivo 
-			
-			) {
+	public Ocorrencia(String data, String horario, String principal_sintoma, String principal_motivo, Aluno aluno) {
 
 			this.data = data;
 			this.horario = horario;
 			this.principal_sintoma = principal_sintoma;
 			this.principal_motivo = principal_motivo;
-		//	this.alunos = alunos;
+			this.aluno = aluno;
 		}
+
+		public Aluno getAluno() {
+		return aluno;
+	}
+
+	public void setAluno(Aluno aluno) {
+		this.aluno = aluno;
+	}
 
 		public String getData() {
 			return data;
