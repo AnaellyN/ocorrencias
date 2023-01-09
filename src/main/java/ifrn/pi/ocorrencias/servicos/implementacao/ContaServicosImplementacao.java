@@ -40,9 +40,9 @@ public class ContaServicosImplementacao implements ContaServicos {
 		conta.setEmail(contadto.getEmail());
 		conta.setMatricula(contadto.getMatricula());
 		conta.setSenha(this.passwordEncoder().encode(contadto.getSenha()));
-		Funcao funcao = this.funcaoRepositorio.findByNome("ROLE_ADMIN");
+		Funcao funcao = this.funcaoRepositorio.findByNome("ROLE_" + contadto.getAutorizacaoReg().toUpperCase());
 		if (funcao == null) {
-			funcao = checarFuncao();
+			funcao = checarFuncao("ROLE_" + contadto.getAutorizacaoReg().toUpperCase());
 		}
 		conta.setFuncoes(Arrays.asList(funcao));
 		this.contaRepositorio.save(conta);
@@ -53,9 +53,9 @@ public class ContaServicosImplementacao implements ContaServicos {
 		return this.contaRepositorio.findByMatricula(matricula);
 	}
 
-	private Funcao checarFuncao() {
+	private Funcao checarFuncao(String novaFuncao) {
 		Funcao funcao = new Funcao();
-		funcao.setName("ROLE_ADMIN");
+		funcao.setNome(novaFuncao);
 		return this.funcaoRepositorio.save(funcao);
 
 	}

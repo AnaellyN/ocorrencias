@@ -32,6 +32,10 @@ public class Aluno {
 
 	@Column(name = "telefone", nullable = false, unique = true, length = 11)
 	private String telefone;
+	
+	@Column(name = "cpf", nullable = false, unique = true, length = 11)
+	private String cpf;
+	
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_curso", nullable = false)
@@ -42,10 +46,13 @@ public class Aluno {
 
 	}
 	
-	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso) {
+	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso, String cpf) {
 
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
+		this.telefone = telefone; 
+		this.curso = curso;
+		this.cpf = cpf;
 		
 	}
 
@@ -88,5 +95,14 @@ public class Aluno {
 	public void setCurso(Curso curso) {
 		this.curso = curso;
 	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+	
 }
 	
