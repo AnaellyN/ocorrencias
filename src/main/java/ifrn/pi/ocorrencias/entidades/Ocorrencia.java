@@ -35,7 +35,9 @@ public class Ocorrencia {
 
 	}
 
+
 	public Ocorrencia(String data, String horario, String principal_sintoma, String principal_motivo
+
 
 	) {
 
@@ -45,6 +47,7 @@ public class Ocorrencia {
 		this.principal_motivo = principal_motivo;
 		// this.alunos = alunos;
 	}
+
 
 	public String getData() {
 		return data;

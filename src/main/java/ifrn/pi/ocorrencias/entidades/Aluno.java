@@ -1,6 +1,7 @@
 package ifrn.pi.ocorrencias.entidades;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,9 @@ public class Aluno {
 	private String cpf;
 	
 
+	@Column(name = "email", nullable = false, unique = true)
+	private String email;
+	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_curso", nullable = false)
 	@OnDelete(action = OnDeleteAction.NO_ACTION)
@@ -46,7 +50,9 @@ public class Aluno {
 
 	}
 	
+
 	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso, String cpf) {
+
 
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
@@ -88,6 +94,14 @@ public class Aluno {
 		this.telefone = telefone;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
 	public Curso getCurso() {
 		return curso;
 	}
@@ -104,5 +118,6 @@ public class Aluno {
 		this.cpf = cpf;
 	}
 	
+
 }
 	

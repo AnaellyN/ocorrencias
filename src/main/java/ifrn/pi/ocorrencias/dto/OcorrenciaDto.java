@@ -1,6 +1,6 @@
 package ifrn.pi.ocorrencias.dto;
 
-public class OcorreciaDto {
+public class OcorrenciaDto {
 	
 	private String data;
 	private String horario;
@@ -8,7 +8,7 @@ public class OcorreciaDto {
 	private String principal_motivo;
 		
 
-	public  OcorreciaDto(String data, String horario,String principal_sintoma,String principal_motivo) {
+	public  OcorrenciaDto(String data, String horario,String principal_sintoma,String principal_motivo) {
 		this.data = data;
 		this.horario = horario;
 		this.principal_sintoma = principal_sintoma;
