@@ -33,6 +33,10 @@ public class Aluno {
 
 	@Column(name = "telefone", nullable = false, unique = true, length = 11)
 	private String telefone;
+	
+	@Column(name = "cpf", nullable = false, unique = true, length = 11)
+	private String cpf;
+	
 
 	@Column(name = "email", nullable = false, unique = true)
 	private String email;
@@ -46,10 +50,15 @@ public class Aluno {
 
 	}
 	
-	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso, String email) {
+
+	public Aluno(String nome, Date dataDeNascimento, String telefone, Curso curso, String cpf) {
+
 
 		this.nome = nome;
 		this.dataDeNascimento = dataDeNascimento;
+		this.telefone = telefone; 
+		this.curso = curso;
+		this.cpf = cpf;
 		
 	}
 
@@ -101,14 +110,14 @@ public class Aluno {
 		this.curso = curso;
 	}
 
-	public Object getMatricula() {
-		return null; 
-		//pediu pra criar isso
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setFuncoes(List<Funcao> asList) {
-	//pediu pra criar isso
-		
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
 	}
+	
+
 }
 	

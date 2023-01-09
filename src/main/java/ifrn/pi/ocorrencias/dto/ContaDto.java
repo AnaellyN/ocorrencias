@@ -8,6 +8,9 @@ public class ContaDto {
 
 	private String senha;
 
+	private String autorizacaoReg;
+	
+
 	public ContaDto() {
 
 	}
@@ -40,6 +43,14 @@ public class ContaDto {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+
+	public String getAutorizacaoReg() {
+		return autorizacaoReg;
+	}
+
+	public void setAutorizacaoReg(String autorizacaoReg) {
+		this.autorizacaoReg = autorizacaoReg;
 	}
 
 }

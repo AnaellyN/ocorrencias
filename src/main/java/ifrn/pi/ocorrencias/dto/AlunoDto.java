@@ -1,5 +1,7 @@
 package ifrn.pi.ocorrencias.dto;
 
+import java.sql.Date;
+
 public class AlunoDto {
 	
 	// Esta classe serve para troca de informações entre as partes do sistema
@@ -9,18 +11,22 @@ public class AlunoDto {
 		private Long id;
 		private String nome;
 		private String email;
-		private String telefone;
 
-		public AlunoDto() {
+		private String cpf;
+		private String password;
+		private Date dataDeNascimento; //adicionado agora
+		private String telefone; //adicionado agora
 
-		}
 
-		public AlunoDto(Long id, String nome, String email, String telefone, String senha) {
+
+		public AlunoDto(Long id, String nome, String email, String cpf, String password, Date dataDeNascimento, String telefone) {
 			this.id = id;
 			this.nome = nome;
 			this.email = email;
-			this.telefone = telefone;
-		}
+			this.cpf = cpf;
+			this.password = password;
+			this.dataDeNascimento = dataDeNascimento;
+			this.telefone = telefone; 
 
 		public Long getId() {
 			return id;
@@ -48,5 +54,22 @@ public class AlunoDto {
 		public void setTelefone(String telefone) {
 			this.telefone = telefone;
 		}
-		
+
+
+		public Date getDataDeNascimento() {
+			return dataDeNascimento;
+		}
+
+		public void setDataDeNascimento(Date dataDeNascimento) {
+			this.dataDeNascimento = dataDeNascimento;
+		}
+
+		public String getTelefone() {
+			return telefone;
+		}
+
+		public void setTelefone(String telefone) {
+			this.telefone = telefone;
+		}
+
 }
