@@ -11,7 +11,6 @@ public class AlunoDto {
 		private Long id;
 		private String nome;
 		private String email;
-
 		private String cpf;
 		private String password;
 		private Date dataDeNascimento; //adicionado agora
@@ -27,7 +26,7 @@ public class AlunoDto {
 			this.password = password;
 			this.dataDeNascimento = dataDeNascimento;
 			this.telefone = telefone; 
-
+		}
 		public Long getId() {
 			return id;
 		}
@@ -47,14 +46,6 @@ public class AlunoDto {
 			this.email = email;
 		}
 
-		public String getTelefone() {
-			return telefone;
-		}
-
-		public void setTelefone(String telefone) {
-			this.telefone = telefone;
-		}
-
 
 		public Date getDataDeNascimento() {
 			return dataDeNascimento;
@@ -71,5 +62,18 @@ public class AlunoDto {
 		public void setTelefone(String telefone) {
 			this.telefone = telefone;
 		}
+		public String getCpf() {
+			return cpf;
+		}
+		public void setCpf(String cpf) {
+			this.cpf = cpf;
+		}
+		public String getPassword() {
+			return password;
+		}
+		public void setPassword(String password) {
+			this.password = password;
+		}
+		
 
 }
