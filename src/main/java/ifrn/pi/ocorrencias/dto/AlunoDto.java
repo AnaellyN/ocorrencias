@@ -27,7 +27,7 @@ public class AlunoDto {
 			this.password = password;
 			this.dataDeNascimento = dataDeNascimento;
 			this.telefone = telefone; 
-
+		}
 		public Long getId() {
 			return id;
 		}
@@ -46,15 +46,6 @@ public class AlunoDto {
 		public void setEmail(String email) {
 			this.email = email;
 		}
-
-		public String getTelefone() {
-			return telefone;
-		}
-
-		public void setTelefone(String telefone) {
-			this.telefone = telefone;
-		}
-
 
 		public Date getDataDeNascimento() {
 			return dataDeNascimento;
