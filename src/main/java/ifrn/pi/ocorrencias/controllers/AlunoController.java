@@ -26,7 +26,7 @@ public class AlunoController {
 	
 	@GetMapping("/AlunoDto")
 	public String AlunoDto(Model model) {
-		List<AlunoDto> accounts = this.alunoServicos.findAllAlunos();
+		List<AlunoDto> listagem = this.alunoServicos.findAllAlunos();
 		model.addAttribute("AlunoDto", AlunoDto);
 		return "AlunoDto";
 	}	
